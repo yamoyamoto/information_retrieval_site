@@ -16,15 +16,12 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
   const [text, setText] = React.useState("");
   const [result, setResult] = React.useState<Morpheme[]>([]);
 
-  console.log(text);
-
   const execAnalysis = () => {
     axios.get("/morphological_analysis?s=" + text).then((res) => {
       console.log(res);
       setResult(res.data.morphemes);
     });
   };
-  console.log(result);
 
   return (
     <div className="morphological_analysis_wrap" style={{ minWidth: "50%" }}>
