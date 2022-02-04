@@ -82,7 +82,7 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
                     <TableCell component="th" scope="row">
                       {morpheme.surface}
                     </TableCell>
-                    <TableCell align="right">{morpheme.count}</TableCell>
+                    <TableCell>{morpheme.count}</TableCell>
                   </TableRow>
                 );
               }
