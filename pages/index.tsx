@@ -15,7 +15,9 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to IR Site !</h1>
 
-        <MorphologicalAnalyzer />
+        <div style={{ margin: "100px 0" }}>
+          <MorphologicalAnalyzer />
+        </div>
       </main>
 
       <footer className={styles.footer}></footer>

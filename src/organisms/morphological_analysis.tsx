@@ -24,7 +24,10 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
   };
 
   return (
-    <div className="morphological_analysis_wrap" style={{ minWidth: "50%" }}>
+    <div
+      className="morphological_analysis_wrap"
+      style={{ minWidth: "50%", textAlign: "center" }}
+    >
       <div>
         <TextareaAutosize
           aria-label="minimum height"
@@ -41,7 +44,9 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
         解析する
       </Button>
 
-      <ResultTable morphemes={result} />
+      <div className="result_wrapper" style={{ margin: "50px 0" }}>
+        <ResultTable morphemes={result} />
+      </div>
     </div>
   );
 };
