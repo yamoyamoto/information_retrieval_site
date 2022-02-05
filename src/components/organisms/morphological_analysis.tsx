@@ -8,7 +8,7 @@ import {
   TableRow,
   TableHead,
 } from "@mui/material";
-import axios from "../../lib/axios";
+import axios from "../../../lib/axios";
 
 type Props = {};
 
@@ -19,8 +19,8 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
   const execAnalysis = () => {
     const reqBody = {
       text: text,
-      use_word_class_filter: false,
-      word_classes: [],
+      use_word_class_filter: true,
+      word_classes: ["固有名詞"],
     };
     axios.post("/", reqBody).then((res) => {
       console.log(res);
@@ -36,7 +36,7 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
       <div>
         <TextareaAutosize
           aria-label="minimum height"
-          minRows={3}
+          minRows={10}
           placeholder="文章を入力"
           style={{ width: "100%" }}
           value={text}
@@ -68,6 +68,7 @@ type RowData = {
 type Morpheme = {
   surface: string;
   count: number;
+  featureString: string;
 };
 
 const ResultTable: React.FC<TableProps> = (props: TableProps) => {
@@ -77,6 +78,7 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
       <TableHead>
         <TableRow>
           <TableCell>Surface</TableCell>
+          <TableCell>WordClass</TableCell>
           <TableCell>Count</TableCell>
         </TableRow>
       </TableHead>
@@ -89,9 +91,8 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
                     key={i}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
-                      {rowData.morpheme.surface}
-                    </TableCell>
+                    <TableCell>{rowData.morpheme.surface}</TableCell>
+                    <TableCell>{rowData.morpheme.featureString}</TableCell>
                     <TableCell>{rowData.count}</TableCell>
                   </TableRow>
                 );
