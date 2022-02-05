@@ -14,10 +14,15 @@ type Props = {};
 
 export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
   const [text, setText] = React.useState("");
-  const [result, setResult] = React.useState<Morpheme[]>([]);
+  const [result, setResult] = React.useState<RowData[]>([]);
 
   const execAnalysis = () => {
-    axios.get("/morphological_analysis?s=" + text).then((res) => {
+    const reqBody = {
+      text: text,
+      use_word_class_filter: false,
+      word_classes: [],
+    };
+    axios.post("/", reqBody).then((res) => {
       console.log(res);
       setResult(res.data.morphemes);
     });
@@ -45,14 +50,19 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
       </Button>
 
       <div className="result_wrapper" style={{ margin: "50px 0" }}>
-        <ResultTable morphemes={result} />
+        <ResultTable data={result} />
       </div>
     </div>
   );
 };
 
 type TableProps = {
-  morphemes: Morpheme[];
+  data: RowData[];
+};
+
+type RowData = {
+  morpheme: Morpheme;
+  count: number;
 };
 
 type Morpheme = {
@@ -71,18 +81,18 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {props.morphemes
-          ? props.morphemes.map((morpheme: Morpheme, i) => {
-              if (morpheme.surface != "") {
+        {props.data
+          ? props.data.map((rowData: RowData, i) => {
+              if (rowData.morpheme.surface != "") {
                 return (
                   <TableRow
                     key={i}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">
-                      {morpheme.surface}
+                      {rowData.morpheme.surface}
                     </TableCell>
-                    <TableCell>{morpheme.count}</TableCell>
+                    <TableCell>{rowData.count}</TableCell>
                   </TableRow>
                 );
               }
