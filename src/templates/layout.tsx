@@ -10,31 +10,65 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div style={{ backgroundColor: "#000055", color: "#C0C0C0" }}>
+    <div className="layout_wrapper">
       <Head>
         <title>Yamoyamoto's Site</title>
       </Head>
 
-      <header style={{ position: "fixed", top: "0", right: "50px" }}>
-        <div style={{ textAlign: "center" }}>
-          <Link href="/">
-            <Button>
-              <HomeIcon style={{ fontSize: "50px" }}></HomeIcon>
-            </Button>
-          </Link>
-        </div>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/">
+                <u>Home</u>
+              </Link>
+            </li>
+            <li>
+              <u>About</u>
+            </li>
+          </ul>
+        </nav>
       </header>
 
-      <div
-        style={{
-          maxWidth: "800px",
-          margin: "auto",
-        }}
-      >
-        {children}
-      </div>
+      <div>{children}</div>
 
-      <footer></footer>
+      <footer>
+        <hr />
+        <ul>
+          <li>
+            <a href="https://github.com/yamoyamoto">
+              <p style={{ margin: "0" }}>GitHub</p>
+              <img src="/icon-white-github.png" height="30px" />
+            </a>
+          </li>
+        </ul>
+      </footer>
+      <style jsx>{`
+        .layout_wrapper {
+          max-width: 800px;
+          height: 100%;
+          color: white;
+          margin: auto;
+        }
+
+        ul {
+          display: flex;
+        }
+
+        li {
+          list-style: none;
+          margin-right: 30px;
+        }
+
+        footer {
+          text-align: center;
+          margin-bottom: 90px;
+        }
+        footer li {
+          margin: auto;
+          display: inline-block;
+        }
+      `}</style>
     </div>
   );
 };
