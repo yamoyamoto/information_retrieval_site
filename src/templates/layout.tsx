@@ -1,8 +1,6 @@
-import { Button } from "@mui/material";
 import Head from "next/head";
 import Link from "next/link";
 import { ReactNode } from "react";
-import HomeIcon from "@mui/icons-material/Home";
 
 type Props = {
   children?: ReactNode;
@@ -19,12 +17,10 @@ const Layout = ({ children }: Props) => {
         <nav>
           <ul>
             <li>
-              <Link href="/">
-                <u>Home</u>
-              </Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <u>About</u>
+              <Link href="/">About</Link>
             </li>
           </ul>
         </nav>
@@ -45,7 +41,7 @@ const Layout = ({ children }: Props) => {
       </footer>
       <style jsx>{`
         .layout_wrapper {
-          max-width: 800px;
+          max-width: 1000px;
           height: 100%;
           color: white;
           margin: auto;
