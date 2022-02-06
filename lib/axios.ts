@@ -5,7 +5,7 @@ const production = process.env.NODE_ENV === "production";
 
 const axios = Axios.create({
   baseURL: production
-    ? "https://information-retrieval-api.herokuapp.com/"
+    ? "https://yamoto-ir-api.herokuapp.com/"
     : "http://localhost/",
 });
 
