@@ -13,6 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           height: 100%;
           background-color: black;
         }
+        a:hover {
+          cursor: pointer;
+        }
       `}</style>
     </Layout>
   );
