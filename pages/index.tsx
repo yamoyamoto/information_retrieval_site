@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 const Home: NextPage = () => {
   const cardStyle = {
     height: "200px",
+    cursor: "pointer",
   };
   return (
     <>
@@ -44,6 +45,23 @@ const Home: NextPage = () => {
               </Card>
             </Link>
           </div>
+          <div className="card_wrapper">
+            <Link href="/">
+              <Card style={cardStyle}>
+                <CardContent>
+                  <Typography variant="h5" component="div">
+                    簡易検索システム
+                  </Typography>
+                  <Typography variant="body2">
+                    作成予定。
+                    <br />
+                    <br />
+                    (tf-idfやコサイン類似度による関連度計算の実装練習)
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -52,11 +70,11 @@ const Home: NextPage = () => {
         }
 
         .cards_wrapper {
-          display: flex;
         }
 
         .card_wrapper {
-          width: 300px;
+          display: inline-block;
+          width: 250px;
           margin: 10px;
         }
       `}</style>
