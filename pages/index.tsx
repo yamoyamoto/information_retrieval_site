@@ -29,8 +29,6 @@ const Home: NextPage = () => {
           </Card>
         </Link>
       </div>
-
-      <footer className={styles.footer}></footer>
     </>
   );
 };
