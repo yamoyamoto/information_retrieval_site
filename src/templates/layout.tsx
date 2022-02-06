@@ -51,6 +51,10 @@ const Layout = ({ children }: Props) => {
           margin: auto;
         }
 
+        header {
+          margin-top: 20px;
+        }
+
         ul {
           display: flex;
         }

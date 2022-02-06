@@ -18,8 +18,6 @@ const Home: NextPage = () => {
           <MorphologicalAnalyzer />
         </div>
       </main>
-
-      <footer></footer>
     </div>
   );
 };
