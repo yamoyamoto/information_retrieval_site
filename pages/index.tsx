@@ -53,9 +53,6 @@ const Home: NextPage = () => {
         .works_wrapper {
           margin: 100px 0;
         }
-
-        .cards_wrapper {
-        }
       `}</style>
     </>
   );
