@@ -27,7 +27,7 @@ const Home: NextPage = () => {
       title: "簡易情報検索システム",
       description: `作成予定。
       (tf-idfやコサイン類似度による関連度計算の実装練習)`,
-      href: "/",
+      href: "/information_retrieval/search_document",
     },
   ];
 
