@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { MorphologicalAnalyzer } from "../../src/components/organisms/morphological_analysis";
+import { SearchDocumentApp } from "../../src/components/organisms/SearchDocumentApp";
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +14,9 @@ const Home: NextPage = () => {
       <main>
         <h1>Welcome to IR Site !</h1>
 
-        <div style={{ margin: "100px 0" }}></div>
+        <div style={{ margin: "100px 0" }}>
+          <SearchDocumentApp />
+        </div>
       </main>
     </div>
   );
