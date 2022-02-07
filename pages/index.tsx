@@ -31,9 +31,10 @@ const Home: NextPage = () => {
     },
   ];
 
-  let workCards = workCardSettings.map((setting) => {
+  let workCards = workCardSettings.map((setting, i) => {
     return (
       <WorkCard
+        key={i}
         title={setting.title}
         description={setting.description}
         href={setting.href}
