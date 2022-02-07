@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { MorphologicalAnalyzer } from "../../src/components/organisms/morphological_analysis";
 
 const Home: NextPage = () => {
   return (

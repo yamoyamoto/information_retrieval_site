@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         body,
         div#__next {
           height: 100%;
-          background-color: black;
+          background-color: #110000;
         }
         a:hover {
           cursor: pointer;
