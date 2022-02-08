@@ -21,7 +21,7 @@ const Home: NextPage = () => {
     {
       title: "プチ検索エンジン",
       description: `作成予定。`,
-      href: "/",
+      href: "/information_retrieval/mini_search_engine",
     },
     {
       title: "簡易情報検索システム",
