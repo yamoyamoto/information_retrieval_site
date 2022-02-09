@@ -34,6 +34,11 @@ export const SearchBox = (props: SearchBoxProps) => {
           props.updateQuery(event.target.value);
         }}
         className={classes.textArea}
+        onKeyPress={(e) => {
+          if (e.key == "Enter") {
+            props.onEnterButton(props.query);
+          }
+        }}
       ></TextField>
       <Button
         className={classes.button}
