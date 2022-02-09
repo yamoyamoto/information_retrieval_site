@@ -5,6 +5,7 @@ import { TextField, Button } from "@mui/material";
 type SearchBoxProps = {
   query: string;
   updateQuery: (newQuery: string) => void;
+  onEnterButton: (q: string) => void;
 };
 
 export const SearchBox = (props: SearchBoxProps) => {
@@ -12,9 +13,9 @@ export const SearchBox = (props: SearchBoxProps) => {
   const useStyle = makeStyles({
     button: {
       color: "white",
-      border: "2px solid",
+      border: "1px solid",
       borderColor: "white",
-      padding: "5px",
+      padding: "2px",
       margin: "5px 10px",
     },
     textArea: {
@@ -34,7 +35,14 @@ export const SearchBox = (props: SearchBoxProps) => {
         }}
         className={classes.textArea}
       ></TextField>
-      <Button className={classes.button}>検索</Button>
+      <Button
+        className={classes.button}
+        onClick={() => {
+          props.onEnterButton(props.query);
+        }}
+      >
+        検索
+      </Button>
     </div>
   );
 };
