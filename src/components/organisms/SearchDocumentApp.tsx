@@ -8,7 +8,7 @@ export const SearchDocumentApp = (props: SearchDocumentAppProps) => {
 
   return (
     <div>
-      <SearchBox query={query} updateQuery={setQuery} />
+      <SearchBox query={query} updateQuery={setQuery} onEnterButton={(q: string) => {}} />
     </div>
   );
 };
