@@ -15,6 +15,9 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
   const [nowPage, setNowPage] = React.useState<number>(0);
   const [didFirstSearch, setDidFirstSearch] = React.useState(false);
 
+  const [totalSearchResults, updateTotalSearchResults] = React.useState(0);
+  const [formattedSearchTime, updateFormattedSearchTime] = React.useState(0);
+
   const useStyle = makeStyles({
     searchBoxWrapper: {
       maxWidth: "400px",
@@ -40,6 +43,8 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
           };
         });
         updateSearchResults(newSearchResults);
+        updateTotalSearchResults(res.data.searchInformation.formattedTotalResults);
+        updateFormattedSearchTime(res.data.searchInformation.formattedSearchTime);
       } catch (e) {
         console.log(e);
       }
@@ -62,6 +67,13 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
     <div className="mini_search_engine_wrapper">
       <div className={classes.searchBoxWrapper}>
         <SearchBox query={query} updateQuery={setQuery} onEnterButton={Search} />
+      </div>
+      <div className="search_result_desc_wrapper">
+        {totalSearchResults == 0 ? null : (
+          <p>
+            {totalSearchResults}件ヒットしました(検索時間:{formattedSearchTime}秒)
+          </p>
+        )}
       </div>
       <div className="search_result_wrapper">{searchResultCards}</div>
       <div className="nav_bottom">
