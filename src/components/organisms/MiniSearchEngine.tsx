@@ -29,7 +29,7 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
 
   const Search = (q: string, startIndex?: number) => {
     setDidFirstSearch(true);
-    axios.post(`/search?q=${q}&start_index=${startIndex || 1}`).then((res) => {
+    axios.get(`/search?q=${q}&start_index=${startIndex || 1}`).then((res) => {
       try {
         console.log(res);
         let newSearchResults = res.data.items.map((item: any) => {
