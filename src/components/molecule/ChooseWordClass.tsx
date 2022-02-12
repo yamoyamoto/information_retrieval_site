@@ -35,9 +35,10 @@ export const ChooseWordClass = (props: ChooseWordClassProps) => {
     }
   }
 
-  const checkBoxes = wordClasses.map((wordClass: string) => {
+  const checkBoxes = wordClasses.map((wordClass: string, i) => {
     return (
       <FormControlLabel
+        key={i}
         control={<Checkbox
           className={classes.checkBox}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleChange(event, wordClass)}
