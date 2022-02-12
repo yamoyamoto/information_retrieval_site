@@ -1,5 +1,4 @@
-import { Checkbox, FormControlLabel } from "@material-ui/core";
-import { makeStyles } from "@mui/styles";
+import { Checkbox, FormControlLabel, makeStyles } from "@material-ui/core";
 
 import React from "react";
 
@@ -9,16 +8,14 @@ type ChooseWordClassProps = {
 }
 
 const wordClasses = ["名詞", "助詞", "動詞", "助動詞", "*"];
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   checkBox: {
     color: "white",
-    borderBlockColor: "white",
-    borderColor: "white",
   },
-});
-const classes = useStyles();
+}));
 
 export const ChooseWordClass = (props: ChooseWordClassProps) => {
+  const classes = useStyles();
   const addWordClass = (wordClass: string) => {
     let newChosen = props.chosen.slice();
     newChosen.push(wordClass);
