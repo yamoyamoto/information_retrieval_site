@@ -44,7 +44,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <h1>Welcome to Yamoyamoto's Site !</h1>
+      <h1>Welcome to My Site !</h1>
 
       <div className="works_wrapper">
         <h2>Works</h2>
