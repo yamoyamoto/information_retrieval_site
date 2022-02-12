@@ -11,36 +11,50 @@ import {
 import axios from "../../../lib/axios";
 import { makeStyles } from "@mui/styles";
 
+import { ChooseWordClass } from "../molecule/ChooseWordClass";
+
 type Props = {};
 
 export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
   const [text, setText] = React.useState("");
   const [result, setResult] = React.useState<RowData[]>([]);
+  const [chosenWordClass, updateChosenWordClass] = React.useState<string[]>([]);
+  const [onSearching, changeOoSearching] = React.useState(false);
 
   const execAnalysis = () => {
+    changeOoSearching(true)
     const reqBody = {
       text: text,
-      use_word_class_filter: false,
-      word_classes: [],
+      use_word_class_filter: true,
+      word_classes: chosenWordClass,
     };
     axios.post("/", reqBody).then((res) => {
       console.log(res);
       setResult(res.data.morphemes);
+      changeOoSearching(false);
     });
   };
 
-  const styleJSX = `
-    .morphological_analysis_wrap{
-      text-align:center;
-      max-width:800px;
-      margin:auto;
+  const useStyles = makeStyles({
+    morphologicalAnalysisWrap: {
+      textAlign: "center",
+      maxWidth: "800px",
+      margin: "auto",
+    },
+    button: {
+      borderColor: "#A9A9A9",
+      border: "0.1px solid",
+      padding: "5px 15px",
+      borderRadius: "5px"
     }
-  `;
+  });
+  const classes = useStyles();
 
   return (
     <>
-      <div className="morphological_analysis_wrap">
+      <div className={classes.morphologicalAnalysisWrap}>
         <div>
+          <ChooseWordClass chosen={chosenWordClass} updateChosen={updateChosenWordClass} />
           <TextareaAutosize
             aria-label="minimum height"
             minRows={10}
@@ -52,15 +66,19 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
             }}
           />
         </div>
-        <Button variant="outlined" onClick={execAnalysis}>
+        <Button className={classes.button} variant="outlined" onClick={execAnalysis}>
           解析する
         </Button>
 
         <div className="result_wrapper" style={{ margin: "50px 0" }}>
-          <ResultTable data={result} />
+          {
+            onSearching ?
+              <p>解析中です...</p>
+              :
+              <ResultTable data={result} />
+          }
         </div>
       </div>
-      <style jsx>{styleJSX}</style>
     </>
   );
 };
@@ -102,27 +120,27 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
           <TableBody>
             {props.data
               ? props.data.map((rowData: RowData, i) => {
-                  if (rowData.morpheme.surface != "") {
-                    return (
-                      <TableRow
-                        key={i}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 },
-                        }}
-                      >
-                        <TableCell className={classes.tableCell}>
-                          {rowData.morpheme.surface}
-                        </TableCell>
-                        <TableCell className={classes.tableCell}>
-                          {rowData.morpheme.featureString}
-                        </TableCell>
-                        <TableCell className={classes.tableCell}>
-                          {rowData.count}
-                        </TableCell>
-                      </TableRow>
-                    );
-                  }
-                })
+                if (rowData.morpheme.surface != "") {
+                  return (
+                    <TableRow
+                      key={i}
+                      sx={{
+                        "&:last-child td, &:last-child th": { border: 0 },
+                      }}
+                    >
+                      <TableCell className={classes.tableCell}>
+                        {rowData.morpheme.surface}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        {rowData.morpheme.featureString}
+                      </TableCell>
+                      <TableCell className={classes.tableCell}>
+                        {rowData.count}
+                      </TableCell>
+                    </TableRow>
+                  );
+                }
+              })
               : null}
           </TableBody>
         </Table>
