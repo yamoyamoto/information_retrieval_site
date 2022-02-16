@@ -9,9 +9,23 @@ import {
   TableHead,
 } from "@mui/material";
 import axios from "../../../lib/axios";
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@material-ui/core";
 
 import { ChooseWordClass } from "../molecule/ChooseWordClass";
+
+const useStyles = makeStyles({
+  morphologicalAnalysisWrap: {
+    textAlign: "center",
+    maxWidth: "800px",
+    margin: "auto",
+  },
+  button: {
+    borderColor: "#A9A9A9",
+    border: "0.1px solid",
+    padding: "5px 15px",
+    borderRadius: "5px"
+  }
+});
 
 type Props = {};
 
@@ -35,19 +49,7 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
     });
   };
 
-  const useStyles = makeStyles({
-    morphologicalAnalysisWrap: {
-      textAlign: "center",
-      maxWidth: "800px",
-      margin: "auto",
-    },
-    button: {
-      borderColor: "#A9A9A9",
-      border: "0.1px solid",
-      padding: "5px 15px",
-      borderRadius: "5px"
-    }
-  });
+
   const classes = useStyles();
 
   return (
