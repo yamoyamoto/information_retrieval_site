@@ -28,6 +28,7 @@ const useStyle = makeStyles({
   cardWrapper: {
     marginTop: "20px",
     maxWidth: "600px",
+    padding: "10px",
     backgroundColor: "white",
     color: "black",
   },
