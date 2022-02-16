@@ -7,6 +7,17 @@ import { Pagination, PaginationItem } from "@mui/material";
 import { SearchResultCard, SearchResultCardProps } from "../molecule/SearchResultCard";
 import axios from "../../../lib/axios";
 
+const useStyle = makeStyles({
+  searchBoxWrapper: {
+    maxWidth: "400px",
+    display: "flex",
+  },
+  paginationItem: {
+    color: "white",
+    borderColor: "gray",
+  },
+});
+
 type MiniSearchEngineProps = {};
 
 export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
@@ -18,16 +29,7 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
   const [totalSearchResults, updateTotalSearchResults] = React.useState(0);
   const [formattedSearchTime, updateFormattedSearchTime] = React.useState(0);
 
-  const useStyle = makeStyles({
-    searchBoxWrapper: {
-      maxWidth: "400px",
-      display: "flex",
-    },
-    paginationItem: {
-      color: "white",
-      borderColor: "gray",
-    },
-  });
+
   const classes = useStyle();
 
   const Search = (q: string, startIndex?: number) => {

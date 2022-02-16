@@ -2,6 +2,19 @@ import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { TextField, Button } from "@mui/material";
 
+const useStyle = makeStyles({
+  button: {
+    color: "white",
+    border: "1px solid",
+    borderColor: "white",
+    padding: "2px",
+    margin: "5px 10px",
+  },
+  textArea: {
+    backgroundColor: "white",
+  },
+});
+
 type SearchBoxProps = {
   query: string;
   updateQuery: (newQuery: string) => void;
@@ -10,18 +23,6 @@ type SearchBoxProps = {
 
 export const SearchBox = (props: SearchBoxProps) => {
   console.log(props.query);
-  const useStyle = makeStyles({
-    button: {
-      color: "white",
-      border: "1px solid",
-      borderColor: "white",
-      padding: "2px",
-      margin: "5px 10px",
-    },
-    textArea: {
-      backgroundColor: "white",
-    },
-  });
   const classes = useStyle();
 
   return (
