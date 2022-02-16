@@ -15,9 +15,7 @@ export const DocumentCard = (props: DocumentCardProps) => {
 
   return (
     <div className={classes.cardWrapper}>
-      <pre>
-        <p>{props.body}</p>
-      </pre>
+      <p>{props.body}</p>
       <p>tf:{props.tf || "??"}</p>
       <p>df:{props.df || "??"}</p>
       <p>idf:{props.idf || "??"}</p>
