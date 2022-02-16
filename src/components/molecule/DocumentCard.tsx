@@ -16,10 +16,17 @@ export const DocumentCard = (props: DocumentCardProps) => {
   return (
     <div className={classes.cardWrapper}>
       <p>{props.body}</p>
-      <p>tf:{props.tf || "??"}</p>
-      <p>df:{props.df || "??"}</p>
-      <p>idf:{props.idf || "??"}</p>
-      <p>tf-idf:{props.tfIdf || "??"}</p>
+      <p>
+        tf-idf: {props.tfIdf || "??"}
+        &nbsp;
+        (
+        tf: {props.tf || "??"},
+        &nbsp;
+        df: {props.df || "??"},
+        &nbsp;
+        idf: {props.idf || "??"}
+        )
+      </p>
     </div>
   );
 }
