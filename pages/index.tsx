@@ -14,19 +14,17 @@ const Home: NextPage = () => {
     // },
     {
       title: "形態素解析ツール",
-      description: `日本語の文章を単語に分割するツール
-      (バックエンドはPython, フロントはNext.js)`,
+      description: `日本語の文章を単語に分割するツール。バックエンドはFastAPI, フロントはNext.js`,
       href: "/information_retrieval",
     },
     {
       title: "プチ検索エンジン",
-      description: `作成予定。`,
+      description: `Google Custom APIを使用した検索エンジンインターフェイス。`,
       href: "/information_retrieval/mini_search_engine",
     },
     {
-      title: "簡易情報検索システム",
-      description: `作成予定。
-      (tf-idfやコサイン類似度による関連度計算の実装練習)`,
+      title: "簡易情報検索システム(tf-idfによる実装)",
+      description: `検索結果の順位付けロジックの実装練習で開発。バックエンドはFastAPI, フロントはNext.js`,
       href: "/information_retrieval/search_document",
     },
   ];
