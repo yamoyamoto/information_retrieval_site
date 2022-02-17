@@ -78,7 +78,7 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
         <div className="result_wrapper" style={{ margin: "50px 0" }}>
           {
             onSearching ?
-              <p>解析中です...</p>
+              <p>解析中です...(初回起動時は少し時間かかります)</p>
               :
               <ResultTable data={result} />
           }

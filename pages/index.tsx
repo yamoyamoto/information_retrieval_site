@@ -7,11 +7,11 @@ import { makeStyles } from "@mui/styles";
 
 const Home: NextPage = () => {
   const workCardSettings: Array<Props> = [
-    {
-      title: "About Me",
-      description: "作成予定。",
-      href: "/",
-    },
+    // {
+    //   title: "About Me",
+    //   description: "作成予定。",
+    //   href: "/",
+    // },
     {
       title: "形態素解析ツール",
       description: `日本語の文章を単語に分割するツール
