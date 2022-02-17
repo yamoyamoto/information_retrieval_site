@@ -22,6 +22,9 @@ const Layout = ({ children }: Props) => {
             <li>
               <Link href="/">About</Link>
             </li>
+            <li>
+              <Link href="https://github.com/yamoyamoto/information_retrieval_site">Repository</Link>
+            </li>
           </ul>
         </nav>
       </header>
