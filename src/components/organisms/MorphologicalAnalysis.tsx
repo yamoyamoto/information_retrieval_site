@@ -42,7 +42,7 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
     changeOoSearching(true)
     const reqBody = {
       text: text,
-      use_word_class_filter: chosenWordClass == [] ? false : true,
+      use_word_class_filter: false,
       word_classes: chosenWordClass,
     };
     axios.post("/", reqBody).then((res) => {
