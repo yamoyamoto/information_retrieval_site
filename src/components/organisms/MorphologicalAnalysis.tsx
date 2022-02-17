@@ -24,7 +24,10 @@ const useStyles = makeStyles({
     border: "0.1px solid",
     padding: "5px 15px",
     borderRadius: "5px"
-  }
+  },
+  tableCell: {
+    color: "white",
+  },
 });
 
 type Props = {};
@@ -101,11 +104,6 @@ type Morpheme = {
 };
 
 const ResultTable: React.FC<TableProps> = (props: TableProps) => {
-  const useStyles = makeStyles({
-    tableCell: {
-      color: "white",
-    },
-  });
   const classes = useStyles();
 
   return (
