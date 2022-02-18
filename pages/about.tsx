@@ -64,9 +64,24 @@ const Home: NextPage = () => {
     <>
       <h1>About Me</h1>
 
+      <div className={classes.profileWrapper}>
+        <h2>Profile</h2>
+        <p>
+          大阪出身の大学院生(2022/4~)。学部のときは物理学、大学院では情報学を専攻している。
+          <br />
+          大学院では情報学の中でも情報検索や自然言語処理周りの研究を行う。
+          <br /><br />
+          趣味は邦楽ロック鑑賞、中学,高校でも部活で取り組んでいたバレーボール、(少量の)お酒。
+          <br /><br />
+          開発はバックエンドが主領域。言語はPHP,Go,TypeScriptをインターンの業務で扱ったことがある。
+          <br />
+          最近はAWSの勉強に取り組んでいる。
+        </p>
+      </div>
+
       <div className={classes.historyWrapper}>
         <h2>History (Internship)</h2>
-        <div className={classes.worksWrapper}>
+        <div className={classes.historyWrapper}>
           <Timeline align="left">
             {historyTimeLineItems}
           </Timeline>
@@ -77,8 +92,8 @@ const Home: NextPage = () => {
 };
 
 const useStyle = makeStyles({
-  worksWrapper: {
-    marginLeft: "0",
+  profileWrapper: {
+    margin: "50px 0",
   },
   historyWrapper: {
     margin: "100px 0",
