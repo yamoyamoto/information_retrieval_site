@@ -27,7 +27,7 @@ const historyTimelinePropsList: historyTimelineProps[] = [
   {
     title: "株式会社nanoFreaks(長期インターン)",
     term: "2021年12月~現在",
-    description: "AWS CDK,SDK (Go,TypeScript) を使用したサーバーレスシステムの開発に携わる",
+    description: "AWS CDK,SDK (Go,TypeScript) を使用したサーバーレスのプロダクト開発に携わる",
   },
 ];
 
