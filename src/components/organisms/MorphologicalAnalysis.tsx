@@ -23,7 +23,8 @@ const useStyles = makeStyles({
     borderColor: "#A9A9A9",
     border: "0.1px solid",
     padding: "5px 15px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    color: "white",
   },
   tableCell: {
     color: "white",
