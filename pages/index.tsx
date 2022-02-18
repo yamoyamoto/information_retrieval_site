@@ -64,14 +64,6 @@ type Props = {
 };
 
 const WorkCard: React.FC<Props> = (props: Props) => {
-  const useStyles = makeStyles({
-    card: {
-      "&:hover": { backgroundColor: "gray" },
-      height: "200px",
-      cursor: "pointer",
-    },
-  });
-
   const style = `
   .card_wrapper {
     display: inline-block;
@@ -96,5 +88,16 @@ const WorkCard: React.FC<Props> = (props: Props) => {
     </div>
   );
 };
+
+const useStyles = makeStyles({
+  card: {
+    "&:hover": { backgroundColor: "gray" },
+    height: "200px",
+    cursor: "pointer",
+  },
+  workTitle: {
+    textDecoration: "underline",
+  },
+});
 
 export default Home;
