@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>Welcome to IR Site !</h1>
+        <h1>Morphological Analyzer</h1>
 
         <div style={{ margin: "100px 0" }}>
           <MorphologicalAnalyzer />
