@@ -3,7 +3,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from "@material-ui/core";
 
 export type SearchResultCardProps = {
   title: string;

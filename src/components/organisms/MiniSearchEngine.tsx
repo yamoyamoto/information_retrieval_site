@@ -1,6 +1,6 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core";
 import { SearchBox } from "../molecule/SearchBox";
 import { Pagination, PaginationItem } from "@mui/material";
 
