@@ -10,7 +10,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="layout_wrapper">
       <Head>
-        <title>Yamoyamoto's Site</title>
+        <title>Yamoyamoto&apos;s Site</title>
       </Head>
 
       <header>
@@ -20,7 +20,7 @@ const Layout = ({ children }: Props) => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/">About</Link>
+              <Link href="/about">About</Link>
             </li>
             <li>
               <Link href="https://github.com/yamoyamoto/information_retrieval_site">Repository</Link>
