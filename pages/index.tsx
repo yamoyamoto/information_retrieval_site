@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Card from "@material-ui/core/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { makeStyles } from "@mui/styles";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core";
 
 const Home: NextPage = () => {
   const workCardSettings: Array<Props> = [
