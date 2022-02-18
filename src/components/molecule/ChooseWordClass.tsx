@@ -7,7 +7,7 @@ type ChooseWordClassProps = {
   updateChosen: (chosen: string[]) => void;
 }
 
-const wordClasses = ["名詞", "助詞", "動詞", "助動詞", "*"];
+const wordClasses = ["名詞", "接頭詞", "動詞", "形容詞", "副詞", "連体詞", "接続詞", "助詞", "助動詞", "感動詞", "記号", "フィラー", "その他"];
 const useStyles = makeStyles(() => ({
   checkBox: {
     color: "white",

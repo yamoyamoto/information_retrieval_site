@@ -28,6 +28,17 @@ const useStyles = makeStyles({
   tableCell: {
     color: "white",
   },
+  chooseWordClassWrap: {
+    margin: "30px 0",
+    textAlign: "left",
+  },
+  chooseWordClassContent: {
+    border: "0.1px solid",
+    padding: "10px",
+  },
+  chooseWordClassTitle: {
+    fontSize: "20px",
+  },
 });
 
 type Props = {};
@@ -42,7 +53,7 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
     changeOoSearching(true)
     const reqBody = {
       text: text,
-      use_word_class_filter: false,
+      use_word_class_filter: chosenWordClass.length !== 0,
       word_classes: chosenWordClass,
     };
     axios.post("/", reqBody).then((res) => {
@@ -59,7 +70,12 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
     <>
       <div className={classes.morphologicalAnalysisWrap}>
         <div>
-          <ChooseWordClass chosen={chosenWordClass} updateChosen={updateChosenWordClass} />
+          <div className={classes.chooseWordClassWrap}>
+            <p className={classes.chooseWordClassTitle}>★品詞選択(何も選択しなかった場合全ての要素が表示されます)</p>
+            <div className={classes.chooseWordClassContent}>
+              <ChooseWordClass chosen={chosenWordClass} updateChosen={updateChosenWordClass} />
+            </div>
+          </div>
           <TextareaAutosize
             aria-label="minimum height"
             minRows={10}
@@ -113,7 +129,7 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
           <TableHead>
             <TableRow>
               <TableCell className={classes.tableCell}>Surface</TableCell>
-              <TableCell className={classes.tableCell}>WordClass</TableCell>
+              <TableCell className={classes.tableCell}>Detail</TableCell>
               <TableCell className={classes.tableCell}>Count</TableCell>
             </TableRow>
           </TableHead>
