@@ -75,6 +75,7 @@ export const MorphologicalAnalyzer: React.FC<Props> = (props: Props) => {
             <div className={classes.chooseWordClassContent}>
               <ChooseWordClass chosen={chosenWordClass} updateChosen={updateChosenWordClass} />
             </div>
+            <p>※品詞分類についての詳細は<a href="https://hayashibe.jp/tr/mecab/dictionary/ipadic" target="_blank" rel="noopener noreferrer">こちら(ブログ記事)</a>。</p>
           </div>
           <TextareaAutosize
             aria-label="minimum height"

@@ -13,6 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           height: 100%;
           background-color: #110000;
         }
+        a{
+          text-decoration: underline;
+        }
         a:hover {
           cursor: pointer;
         }
