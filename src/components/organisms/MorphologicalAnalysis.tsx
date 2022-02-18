@@ -127,7 +127,7 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
   return (
     <>
       <div className="result_table_wrapper">
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell className={classes.tableCell}>Surface</TableCell>
@@ -142,9 +142,9 @@ const ResultTable: React.FC<TableProps> = (props: TableProps) => {
                   return (
                     <TableRow
                       key={i}
-                      sx={{
-                        "&:last-child td, &:last-child th": { border: 0 },
-                      }}
+                    // sx={{
+                    //   "&:last-child td, &:last-child th": { border: 0 },
+                    // }}
                     >
                       <TableCell className={classes.tableCell}>
                         {rowData.morpheme.surface}
