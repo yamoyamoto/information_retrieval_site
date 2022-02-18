@@ -62,6 +62,7 @@ export const SearchDocumentApp = (props: SearchDocumentAppProps) => {
   return (
     <>
       <div className={classes.suggestQueryListWrapper}>
+        <p>★提案ワード</p>
         <SelectButton selectList={suggestQueryList} onSelected={onSelected} />
       </div>
       <div className={classes.searchBoxWrapper}>
@@ -89,11 +90,13 @@ const useStyle = makeStyles({
     display: "flex",
   },
   suggestQueryListWrapper: {
-    margin: "30px 0",
+    margin: "50px 0",
   },
 });
 
 const suggestQueryList = [
   "コロナ",
   "ワクチン",
+  "オミクロン",
+  "大阪",
 ];
