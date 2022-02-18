@@ -1,22 +1,12 @@
 import React from "react";
 
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { SearchBox } from "../molecule/SearchBox";
 import { Pagination, PaginationItem } from "@material-ui/lab";
 
 import { SearchResultCard, SearchResultCardProps } from "../molecule/SearchResultCard";
 import axios from "../../../lib/axios";
 
-const useStyle = makeStyles({
-  searchBoxWrapper: {
-    maxWidth: "400px",
-    display: "flex",
-  },
-  paginationItem: {
-    color: "white",
-    borderColor: "gray",
-  },
-});
 
 type MiniSearchEngineProps = {};
 
@@ -113,3 +103,14 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
     </div>
   );
 };
+
+const useStyle = makeStyles({
+  searchBoxWrapper: {
+    maxWidth: "400px",
+    display: "flex",
+  },
+  paginationItem: {
+    color: "white",
+    borderColor: "gray",
+  },
+});
