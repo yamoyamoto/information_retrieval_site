@@ -2,7 +2,7 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core";
 import { SearchBox } from "../molecule/SearchBox";
-import { Pagination, PaginationItem } from "@mui/material";
+import { Pagination, PaginationItem } from "@material-ui/lab";
 
 import { SearchResultCard, SearchResultCardProps } from "../molecule/SearchResultCard";
 import axios from "../../../lib/axios";
