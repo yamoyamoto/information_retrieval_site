@@ -27,6 +27,7 @@ export const SearchBox = (props: SearchBoxProps) => {
   return (
     <div style={{ display: "flex" }}>
       <TextField
+        variant="outlined"
         fullWidth
         label="キーワードを入力"
         value={props.query}
