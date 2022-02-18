@@ -25,6 +25,7 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
   const [searchResults, updateSearchResults] = React.useState<SearchResultCardProps[]>([]);
   const [nowPage, setNowPage] = React.useState<number>(0);
   const [didFirstSearch, setDidFirstSearch] = React.useState(false);
+  const [searchingNow, setSearchingNow] = React.useState(false);
 
   const [totalSearchResults, updateTotalSearchResults] = React.useState(0);
   const [formattedSearchTime, updateFormattedSearchTime] = React.useState(0);
@@ -34,6 +35,7 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
 
   const Search = (q: string, startIndex?: number) => {
     setDidFirstSearch(true);
+    setSearchingNow(true);
     axios.get(`/search?q=${q}&start_index=${startIndex || 1}`).then((res) => {
       try {
         console.log(res);
@@ -47,6 +49,7 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
         updateSearchResults(newSearchResults);
         updateTotalSearchResults(res.data.searchInformation.formattedTotalResults);
         updateFormattedSearchTime(res.data.searchInformation.formattedSearchTime);
+        setSearchingNow(false);
       } catch (e) {
         console.log(e);
       }
@@ -70,31 +73,40 @@ export const MiniSearchEngine = (props: MiniSearchEngineProps) => {
       <div className={classes.searchBoxWrapper}>
         <SearchBox query={query} updateQuery={setQuery} onEnterButton={Search} />
       </div>
-      <div className="search_result_desc_wrapper">
-        {totalSearchResults == 0 ? null : (
+      {
+        !searchingNow ? null : (
+          <div className="searching_now_wrap">
+            <p>検索中です...(初回検索は時間かかることがあります)</p>
+          </div>
+        )
+      }
+      {totalSearchResults == 0 ? null : (
+        <div className="search_result_desc_wrapper">
           <p>
             {totalSearchResults}件ヒットしました(検索時間:{formattedSearchTime}秒)
           </p>
-        )}
-      </div>
+        </div>
+      )}
       <div className="search_result_wrapper">{searchResultCards}</div>
-      <div className="nav_bottom">
-        <Pagination
-          page={nowPage}
-          onChange={changePage}
-          variant="outlined"
-          count={9}
-          renderItem={(item) => {
-            return (
-              <PaginationItem
-                className={classes.paginationItem}
-                style={{ borderColor: item.selected ? "white" : "black" }}
-                {...item}
-              />
-            );
-          }}
-        />
-      </div>
+      {totalSearchResults === 0 ? null : (
+        <div className="nav_bottom">
+          <Pagination
+            page={nowPage}
+            onChange={changePage}
+            variant="outlined"
+            count={9}
+            renderItem={(item) => {
+              return (
+                <PaginationItem
+                  className={classes.paginationItem}
+                  style={{ borderColor: item.selected ? "white" : "black" }}
+                  {...item}
+                />
+              );
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };
