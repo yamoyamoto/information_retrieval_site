@@ -22,7 +22,6 @@ type SearchBoxProps = {
 };
 
 export const SearchBox = (props: SearchBoxProps) => {
-  console.log(props.query);
   const classes = useStyle();
 
   return (

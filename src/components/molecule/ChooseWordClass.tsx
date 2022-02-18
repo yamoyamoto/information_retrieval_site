@@ -49,8 +49,6 @@ export const ChooseWordClass = (props: ChooseWordClassProps) => {
     )
   })
 
-  console.log(props.chosen);
-
   return (
     <div>
       {checkBoxes}
