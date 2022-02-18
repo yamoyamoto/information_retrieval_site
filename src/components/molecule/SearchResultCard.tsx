@@ -1,9 +1,10 @@
 import React from "react";
 
-import Card from "@material-ui/core/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import { makeStyles } from "@material-ui/core";
+
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 
 export type SearchResultCardProps = {
   title: string;
