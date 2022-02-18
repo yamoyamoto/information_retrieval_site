@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 import { TextField, Button } from "@mui/material";
 
 const useStyle = makeStyles({
