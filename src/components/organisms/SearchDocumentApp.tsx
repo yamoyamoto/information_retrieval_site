@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core";
 
 import { SearchBox } from "../molecule/SearchBox";
 import { DocumentCard } from "../molecule/DocumentCard";
+import { SelectButton } from "../molecule/SelectButton";
 import axios from "../../../lib/axios";
 
 type SearchDocumentAppProps = {};
@@ -21,10 +22,12 @@ type DocumentResult = {
 export const SearchDocumentApp = (props: SearchDocumentAppProps) => {
   const [query, setQuery] = React.useState("");
   const [resultCards, setResultCards] = React.useState([]);
+  const [searchingNow, SetSearchingNow] = React.useState(false);
 
   const classes = useStyle();
 
   const Search = (q: string) => {
+    SetSearchingNow(true);
     const reqBody = {
       q: q,
     }
@@ -44,20 +47,38 @@ export const SearchDocumentApp = (props: SearchDocumentAppProps) => {
           );
         });
         setResultCards(cards);
+        SetSearchingNow(false);
       } catch (e) {
         console.log(e);
       }
     });
   }
 
+  const onSelected = (q: string) => {
+    setQuery(q);
+    Search(q);
+  }
+
   return (
     <>
+      <div className={classes.suggestQueryListWrapper}>
+        <SelectButton selectList={suggestQueryList} onSelected={onSelected} />
+      </div>
       <div className={classes.searchBoxWrapper}>
         <SearchBox query={query} updateQuery={setQuery} onEnterButton={Search} />
       </div>
-      <div >
-        {resultCards}
-      </div>
+      {
+        searchingNow ?
+          (
+            <p>検索中です...(初回検索は時間かかることがあります)</p>
+          )
+          :
+          (
+            <div>
+              {resultCards}
+            </div>
+          )
+      }
     </>
   );
 };
@@ -67,4 +88,12 @@ const useStyle = makeStyles({
     maxWidth: "400px",
     display: "flex",
   },
+  suggestQueryListWrapper: {
+    margin: "30px 0",
+  },
 });
+
+const suggestQueryList = [
+  "コロナ",
+  "ワクチン",
+];
