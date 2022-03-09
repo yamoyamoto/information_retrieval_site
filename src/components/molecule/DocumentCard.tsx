@@ -8,6 +8,7 @@ type DocumentCardProps = {
   df?: number;
   idf?: number;
   tfIdf?: number;
+  cosine?: number;
 }
 
 export const DocumentCard = (props: DocumentCardProps) => {
@@ -17,7 +18,8 @@ export const DocumentCard = (props: DocumentCardProps) => {
     <div className={classes.cardWrapper}>
       <p>{props.body}</p>
       <p>
-        tf-idf: {props.tfIdf || "??"}
+        {props.tfIdf ? `tf-idf: ${props.tfIdf}` : null}
+        {props.cosine ? `cosine: ${props.cosine}` : null}
         &nbsp;
         (
         tf: {props.tf || "??"},
